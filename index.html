@@ -7,22 +7,25 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de la presentación"></div>
-    <div class="slide-counter" id="slideCounter" aria-live="polite" aria-atomic="true"></div>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="slide-counter" id="slideCounter"></div>
 
-    <div class="presentation-container" role="main">
+    <div class="presentation-container">
         <!-- Slide 1: Título -->
-        <div class="slide active title-slide" role="presentation" tabindex="0" aria-label="Diapositiva 1 de 29: Título">
-            <h1>Consultas SQL</h1>
-            <div class="subtitle">Base de Datos II</div>
-            <div class="info">
+        <div class="slide active title-slide">
+            <h1 class="title-animated">Consultas SQL</h1>
+            <div class="subtitle subtitle-animated">Base de Datos II</div>
+            <div class="info info-animated">
                 <p>Presentación de 27 consultas SQL</p>
                 <p style="margin-top: 10px; font-size: 0.9em;">AdventureWorks - SalesLT</p>
+            </div>
+            <div class="author author-animated">
+                <p>Santiago David Vallejo Jácome</p>
             </div>
         </div>
 
         <!-- Slide 2: Consulta 1 -->
-        <div class="slide query-slide" role="presentation" tabindex="0" aria-label="Diapositiva 2 de 29: Conteo de Clientes">
+        <div class="slide query-slide">
             <h2><span class="query-number">1</span>Conteo de Clientes</h2>
             <div class="query-description">
                 Determinar el número total de clientes registrados en la base de datos.
@@ -373,18 +376,21 @@
 
         <!-- Slide 29: Cierre -->
         <div class="slide title-slide">
-            <h1>¡Gracias!</h1>
-            <div class="subtitle">27 Consultas SQL Completadas</div>
-            <div class="info">
+            <h1 class="title-animated">¡Gracias!</h1>
+            <div class="subtitle subtitle-animated">27 Consultas SQL Completadas</div>
+            <div class="info info-animated">
                 <p>Base de Datos II</p>
                 <p style="margin-top: 20px; font-size: 0.9em;">AdventureWorks - SalesLT</p>
+            </div>
+            <div class="author author-animated">
+                <p>Santiago David Vallejo Jácome</p>
             </div>
         </div>
     </div>
 
-    <div class="navigation" role="navigation" aria-label="Navegación de diapositivas">
-        <button class="nav-btn" id="prevBtn" aria-label="Diapositiva anterior" tabindex="0">← Anterior</button>
-        <button class="nav-btn" id="nextBtn" aria-label="Diapositiva siguiente" tabindex="0">Siguiente →</button>
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Anterior</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Siguiente →</button>
     </div>
 
     <script src="slides.js"></script>
