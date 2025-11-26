@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultas SQL - Base de Datos II</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de la presentación"></div>
+    <div class="slide-counter" id="slideCounter" aria-live="polite" aria-atomic="true"></div>
+
+    <div class="presentation-container" role="main">
+        <!-- Slide 1: Título -->
+        <div class="slide active title-slide" role="presentation" tabindex="0" aria-label="Diapositiva 1 de 29: Título">
+            <h1>Consultas SQL</h1>
+            <div class="subtitle">Base de Datos II</div>
+            <div class="info">
+                <p>Presentación de 27 consultas SQL</p>
+                <p style="margin-top: 10px; font-size: 0.9em;">AdventureWorks - SalesLT</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Consulta 1 -->
+        <div class="slide query-slide" role="presentation" tabindex="0" aria-label="Diapositiva 2 de 29: Conteo de Clientes">
+            <h2><span class="query-number">1</span>Conteo de Clientes</h2>
+            <div class="query-description">
+                Determinar el número total de clientes registrados en la base de datos.
+            </div>
+            <div class="sql-code" id="sql1"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge basic">COUNT</span>
+                <span class="concept-badge basic">Consultas Básicas</span>
+            </div>
+        </div>
+
+        <!-- Slide 3: Consulta 2 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">2</span>Top 10 Productos</h2>
+            <div class="query-description">
+                Obtener los primeros 10 productos ordenados alfabéticamente por nombre.
+            </div>
+            <div class="sql-code" id="sql2"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge basic">TOP</span>
+                <span class="concept-badge basic">ORDER BY</span>
+            </div>
+        </div>
+
+        <!-- Slide 4: Consulta 3 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">3</span>Productos Premium</h2>
+            <div class="query-description">
+                Filtrar productos con precio superior a $500.
+            </div>
+            <div class="sql-code" id="sql3"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge basic">WHERE</span>
+                <span class="concept-badge basic">Operadores Comparación</span>
+            </div>
+        </div>
+
+        <!-- Slide 5: Consulta 4 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">4</span>Métodos de Envío</h2>
+            <div class="query-description">
+                Listar todos los métodos de envío únicos disponibles en el sistema.
+            </div>
+            <div class="sql-code" id="sql4"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge basic">DISTINCT</span>
+            </div>
+        </div>
+
+        <!-- Slide 6: Consulta 5 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">5</span>Órdenes por Período</h2>
+            <div class="query-description">
+                Obtener todas las órdenes realizadas entre los años 2008 y 2009.
+            </div>
+            <div class="sql-code" id="sql5"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge basic">YEAR</span>
+                <span class="concept-badge basic">BETWEEN</span>
+            </div>
+        </div>
+
+        <!-- Slide 7: Consulta 6 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">6</span>Búsqueda por Apellido</h2>
+            <div class="query-description">
+                Encontrar clientes con el apellido específico 'Lopez'.
+            </div>
+            <div class="sql-code" id="sql6"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge basic">WHERE</span>
+                <span class="concept-badge basic">Igualdad Exacta</span>
+            </div>
+        </div>
+
+        <!-- Slide 8: Consulta 7 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">7</span>Productos por Color</h2>
+            <div class="query-description">
+                Agrupar y contar productos según su color utilizando GROUP BY.
+            </div>
+            <div class="sql-code" id="sql7"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge intermediate">GROUP BY</span>
+                <span class="concept-badge intermediate">Agregación</span>
+            </div>
+        </div>
+
+        <!-- Slide 9: Consulta 8 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">8</span>Clientes con 'A'</h2>
+            <div class="query-description">
+                Listar clientes cuyo nombre de empresa comienza con la letra 'A'.
+            </div>
+            <div class="sql-code" id="sql8"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge basic">LIKE</span>
+                <span class="concept-badge basic">Patrones</span>
+            </div>
+        </div>
+
+        <!-- Slide 10: Consulta 9 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">9</span>Búsqueda de Bicicletas</h2>
+            <div class="query-description">
+                Encontrar todos los productos cuyo nombre contiene la palabra 'Bike'.
+            </div>
+            <div class="sql-code" id="sql9"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge basic">LIKE</span>
+                <span class="concept-badge basic">Búsqueda Parcial</span>
+            </div>
+        </div>
+
+        <!-- Slide 11: Consulta 10 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">10</span>Órdenes Recientes</h2>
+            <div class="query-description">
+                Mostrar las 5 órdenes más recientes ordenadas por fecha descendente.
+            </div>
+            <div class="sql-code" id="sql10"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge basic">TOP</span>
+                <span class="concept-badge basic">ORDER BY DESC</span>
+            </div>
+        </div>
+
+        <!-- Slide 12: Consulta 11 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">11</span>Órdenes por Cliente</h2>
+            <div class="query-description">
+                Calcular el número total de órdenes realizadas por cada cliente usando JOIN.
+            </div>
+            <div class="sql-code" id="sql11"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge intermediate">JOIN</span>
+                <span class="concept-badge intermediate">GROUP BY</span>
+            </div>
+        </div>
+
+        <!-- Slide 13: Consulta 12 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">12</span>Cantidad Vendida</h2>
+            <div class="query-description">
+                Obtener la cantidad total vendida de cada producto mediante JOIN y SUM.
+            </div>
+            <div class="sql-code" id="sql12"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge intermediate">JOIN</span>
+                <span class="concept-badge intermediate">SUM</span>
+            </div>
+        </div>
+
+        <!-- Slide 14: Consulta 13 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">13</span>Clientes Frecuentes</h2>
+            <div class="query-description">
+                Identificar clientes que han realizado más de 5 órdenes usando HAVING.
+            </div>
+            <div class="sql-code" id="sql13"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge intermediate">HAVING</span>
+                <span class="concept-badge intermediate">Filtrado de Agrupaciones</span>
+            </div>
+        </div>
+
+        <!-- Slide 15: Consulta 14 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">14</span>Precio Promedio por Categoría</h2>
+            <div class="query-description">
+                Calcular el precio promedio de productos agrupados por categoría.
+            </div>
+            <div class="sql-code" id="sql14"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge intermediate">AVG</span>
+                <span class="concept-badge intermediate">JOIN</span>
+            </div>
+        </div>
+
+        <!-- Slide 16: Consulta 15 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">15</span>Productos Sobre el Promedio</h2>
+            <div class="query-description">
+                Encontrar productos con precio superior al promedio general usando subconsulta.
+            </div>
+            <div class="sql-code" id="sql15"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge advanced">Subconsulta</span>
+                <span class="concept-badge advanced">Comparación con Promedio</span>
+            </div>
+        </div>
+
+        <!-- Slide 17: Consulta 16 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">16</span>Órdenes Sobre el Promedio</h2>
+            <div class="query-description">
+                Mostrar órdenes cuyo total excede el promedio de todas las órdenes.
+            </div>
+            <div class="sql-code" id="sql16"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge advanced">Subconsulta</span>
+                <span class="concept-badge advanced">AVG en Subconsulta</span>
+            </div>
+        </div>
+
+        <!-- Slide 18: Consulta 17 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">17</span>Productos No Vendidos</h2>
+            <div class="query-description">
+                Identificar productos que nunca han sido vendidos usando NOT IN.
+            </div>
+            <div class="sql-code" id="sql17"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge advanced">NOT IN</span>
+                <span class="concept-badge advanced">Subconsulta</span>
+            </div>
+        </div>
+
+        <!-- Slide 19: Consulta 18 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">18</span>Territorios Populares</h2>
+            <div class="query-description">
+                Encontrar territorios con más de 50 clientes asociados.
+            </div>
+            <div class="sql-code" id="sql18"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge intermediate">COUNT DISTINCT</span>
+                <span class="concept-badge intermediate">HAVING</span>
+            </div>
+        </div>
+
+        <!-- Slide 20: Consulta 19 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">19</span>Ventas por Año</h2>
+            <div class="query-description">
+                Calcular el total de ventas agrupado por año utilizando funciones de fecha.
+            </div>
+            <div class="sql-code" id="sql19"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge intermediate">YEAR</span>
+                <span class="concept-badge intermediate">SUM</span>
+            </div>
+        </div>
+
+        <!-- Slide 21: Consulta 20 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">20</span>Clientes con Órdenes Premium</h2>
+            <div class="query-description">
+                Obtener clientes cuyas órdenes superan su promedio personal usando subconsulta correlacionada.
+            </div>
+            <div class="sql-code" id="sql20"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge advanced">Subconsulta Correlacionada</span>
+                <span class="concept-badge advanced">Comparación Relativa</span>
+            </div>
+        </div>
+
+        <!-- Slide 22: Consulta 21 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">21</span>Productos Premium por Categoría</h2>
+            <div class="query-description">
+                Encontrar productos cuyo precio supera el promedio de su propia categoría.
+            </div>
+            <div class="sql-code" id="sql21"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge advanced">Subconsulta Correlacionada</span>
+                <span class="concept-badge advanced">Comparación por Grupo</span>
+            </div>
+        </div>
+
+        <!-- Slide 23: Consulta 22 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">22</span>Producto Más Vendido por Orden</h2>
+            <div class="query-description">
+                Identificar el producto con mayor cantidad vendida dentro de cada orden.
+            </div>
+            <div class="sql-code" id="sql22"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge advanced">Subconsulta Correlacionada</span>
+                <span class="concept-badge advanced">MAX</span>
+            </div>
+        </div>
+
+        <!-- Slide 24: Consulta 23 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">23</span>Clientes Superiores</h2>
+            <div class="query-description">
+                Mostrar clientes cuyo total de órdenes supera el total del cliente ID 5.
+            </div>
+            <div class="sql-code" id="sql23"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge advanced">HAVING</span>
+                <span class="concept-badge advanced">Subconsulta en HAVING</span>
+            </div>
+        </div>
+
+        <!-- Slide 25: Consulta 24 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">24</span>Top 3 Productos Más Caros</h2>
+            <div class="query-description">
+                Listar los 3 productos más costosos utilizando ROW_NUMBER y CTE.
+            </div>
+            <div class="sql-code" id="sql24"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge advanced">ROW_NUMBER</span>
+                <span class="concept-badge advanced">CTE (WITH)</span>
+            </div>
+        </div>
+
+        <!-- Slide 26: Consulta 25 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">25</span>Ranking de Clientes</h2>
+            <div class="query-description">
+                Mostrar el ranking de clientes según su monto total comprado usando RANK.
+            </div>
+            <div class="sql-code" id="sql25"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge advanced">RANK</span>
+                <span class="concept-badge advanced">Window Functions</span>
+            </div>
+        </div>
+
+        <!-- Slide 27: Consulta 26 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">26</span>Productos Económicos por Categoría</h2>
+            <div class="query-description">
+                Identificar productos con precio inferior al mínimo de su categoría.
+            </div>
+            <div class="sql-code" id="sql26"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge advanced">Subconsulta Correlacionada</span>
+                <span class="concept-badge advanced">MIN</span>
+            </div>
+        </div>
+
+        <!-- Slide 28: Consulta 27 -->
+        <div class="slide query-slide">
+            <h2><span class="query-number">27</span>Órdenes Excepcionales</h2>
+            <div class="query-description">
+                Obtener órdenes cuyo total supera el máximo de cualquier orden del año 2011.
+            </div>
+            <div class="sql-code" id="sql27"></div>
+            <div style="margin-top: 20px;">
+                <span class="concept-badge advanced">Subconsulta</span>
+                <span class="concept-badge advanced">MAX con Filtro</span>
+            </div>
+        </div>
+
+        <!-- Slide 29: Cierre -->
+        <div class="slide title-slide">
+            <h1>¡Gracias!</h1>
+            <div class="subtitle">27 Consultas SQL Completadas</div>
+            <div class="info">
+                <p>Base de Datos II</p>
+                <p style="margin-top: 20px; font-size: 0.9em;">AdventureWorks - SalesLT</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation" role="navigation" aria-label="Navegación de diapositivas">
+        <button class="nav-btn" id="prevBtn" aria-label="Diapositiva anterior" tabindex="0">← Anterior</button>
+        <button class="nav-btn" id="nextBtn" aria-label="Diapositiva siguiente" tabindex="0">Siguiente →</button>
+    </div>
+
+    <script src="slides.js"></script>
+</body>
+</html>
